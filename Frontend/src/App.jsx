@@ -1,10 +1,12 @@
 import React from 'react'
+import Admin from './Pages/admin'
+import {Route, Routes} from 'react-router-dom'
 
 const App = () => {
-  return (
+   return (
     <div>
-      <h1>hello World</h1> 
-      
+      <Admin />
+
     </div>
   )
 }
