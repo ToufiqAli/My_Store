@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
+
 import {
   LayoutDashboard,
   ShoppingBag,
@@ -25,7 +28,7 @@ const navSections = [
         label: "Dashboard",
         icon: LayoutDashboard,
         active: true,
-        href: "/dashboard",
+        href: "/",
       },
       {
         label: "Orders",
@@ -115,7 +118,6 @@ const Sidebar = ({
   onToggle,
   collapsed,
   onCollapse,
-  activePath = "/dashboard",
   onNavigate,
 }) => {
   const [expandedSections, setExpandedSections] = useState({
@@ -128,12 +130,20 @@ const Sidebar = ({
   const toggleSection = (title) => {
     setExpandedSections((prev) => ({ ...prev, [title]: !prev[title] }));
   };
+  const navigate = useNavigate();
+  const [activePath, setActivePath] = useState("/");
 
-  const handleNav = (href) => {
-    if (onNavigate) onNavigate(href);
-    // Close sidebar on mobile after navigation
-    if (window.innerWidth < 1024 && onToggle) onToggle();
+ const handleNav = (href) => {
+
+      navigate("/admin/"+href);
+      setActivePath(href)
+      
+    
+    if (window.innerWidth < 1024 && onToggle) {
+      onToggle();
+    }
   };
+
 
   return (
     <>
@@ -248,12 +258,16 @@ const Sidebar = ({
               >
                 {section.items.map((item) => {
                   const isActive = activePath === item.href;
+
+                
                   const Icon = item.icon;
 
                   return (
-                    <button
-                      key={item.label}
-                      onClick={() => handleNav(item.href)}
+                     <button 
+          key={item.name}
+
+          onClick={() => handleNav(item.href)} 
+        
                       title={collapsed ? item.label : undefined}
                       className={`
                         group relative w-full flex items-center gap-3 rounded-xl

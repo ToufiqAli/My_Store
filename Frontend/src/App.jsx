@@ -1,14 +1,13 @@
-import React from 'react'
-import Admin from './Pages/admin'
-import {Route, Routes} from 'react-router-dom'
+import { Routes, Route } from "react-router-dom";
+import  Admin from '../src/Pages/Admin'
 
-const App = () => {
-   return (
-    <div>
-      <Admin />
+function App() {
+  return (
 
-    </div>
-  )
+    <Routes>
+      <Route path="/Admin/*" element={<Admin />}/>
+    </Routes>
+  );
 }
 
-export default App
+export default App;
