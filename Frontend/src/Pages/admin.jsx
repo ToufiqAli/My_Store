@@ -5,8 +5,7 @@ import Dashboard from '../Components/Dashboard'
 import Orders from "../Components/Orders"
 import Product from "../Components/ProductsPage"
 import Customers from "../Components/customerPage"
-import Analysics from "../Components/"
-import Analysics from "../Components/Analysics"
+import Analytics from "../Components/analytics"
 import { Routes, Route } from "react-router-dom";
  
 
@@ -20,7 +19,7 @@ const Admin = () => {
         <Route path='/orders' element={<Orders />}></Route>
         <Route path='/products' element={<Product />}></Route>
         <Route path='/customers' element={<Customers />}></Route>
-        <Route path = '/Analysics' element = {<Analysics />}></Route>
+        <Route path = '/analytics' element = {<Analytics />}></Route>
         
        </Routes>
 

@@ -211,8 +211,8 @@ const Sidebar = ({
 
         {/* ===== Navigation ===== */}
         <nav className="flex-1 overflow-y-auto overflow-x-hidden py-4 px-3 scrollbar-thin">
-          {navSections.map((section) => (
-            <div key={section.title} className="mb-4">
+          {navSections.map((section,index) => (
+            <div key={section.index} className="mb-4">
               {/* Section Title */}
               <button
                 onClick={() => !collapsed && toggleSection(section.title)}
